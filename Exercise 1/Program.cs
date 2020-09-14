@@ -27,6 +27,9 @@ namespace Exercise_1
                         case 3:
                             RunExerciseThree();
                             break;
+                        case 4:
+                            RunExerciseFour();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -84,9 +87,38 @@ namespace Exercise_1
             Console.WriteLine("Yesterdays date was " + yesterdaysdate.ToLongDateString());// format long string (den 13 September, 2020)
 
         }
+
         private static void RunExerciseThree()
         {
-            string firstname = AskUserFor
+            string firstname = AskUserFor("firstname");
+            string lastname = AskUserFor("lastname");
+
+            string fullName = CombineFirstAndLastNameIntoFullName(firstname, lastname);
+
+            Console.WriteLine("Your full name is: " + fullName);
+
+        static string AskUserFor(string whatfor)
+        {
+            Console.Write("Please enter " + whatfor + ": ");
+            string userInput = Console.ReadLine();
+
+            return userInput;
+        }
+
+        static string CombineFirstAndLastNameIntoFullName(string firstName, string lastName)
+        {
+            string fullName = firstName + " " + lastName;
+
+            return fullName;
+        }
+
+        }
+
+        private static void RunExerciseFour()
+        {
+            String str = "The quick fox Jumped Over the DOG";
+
+
         }
 
     }
