@@ -304,34 +304,57 @@ namespace Exercise_1
 
             static void OrderBeer()
             {
-                Console.WriteLine("Would you like to order a beer?");
-                string answer = Console.ReadLine();
-
-                if (answer == "yes")
+                bool keepLooping;
+                do
                 {
-                    Console.WriteLine("Your order has been served!");
-                }
-                else if (answer == "no")
-                {
-                    OrderCoke();
-                }
+                    keepLooping = false;
 
+                    Console.WriteLine("Would you like to order a beer?");
+                    string answer = Console.ReadLine();
+
+                    if (answer == "yes")
+                    {
+                        Console.WriteLine("Your order has been served!");
+                    }
+                    else if (answer == "no")
+                    {
+                        OrderCoke();
+                    }
+                    else
+                    {
+                        Console.WriteLine("I'm sorry, I did not catch that");
+                        keepLooping = true;
+                    }
+                }
+                while (keepLooping);
             }
 
             static void OrderCoke()
             {
-                Console.WriteLine("Would you like to order a Coke?");
-                string answer = Console.ReadLine();
+                bool keepLooping;
+                do
+                {
+                    keepLooping = false;
 
-                if (answer == "yes")
-                {
-                    Console.WriteLine("Your order has been served!");
+                    Console.WriteLine("Would you like to order a Coke?");
+                    string answer = Console.ReadLine();
+
+                    if (answer == "yes")
+                    {
+                        Console.WriteLine("Your order has been served!");
+                    }
+                    else if (answer == "no")
+                    {
+                        Console.WriteLine("There are unfortunantely no other alternatives.");
+                        answer = Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("I'm sorry, I did not catch that");
+                        keepLooping = true;
+                    }
                 }
-                else if (answer == "no")
-                {
-                    Console.WriteLine("There are unfortunantely no other alternatives.");
-                    answer = Console.ReadLine();
-                }
+                while (keepLooping);
 
             }
 
