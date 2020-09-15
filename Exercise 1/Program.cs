@@ -15,7 +15,7 @@ namespace Exercise_1
                 {
                     Console.Write("Enter assignment number (or -1 to exit):");
                     var assignmentChoice = int.Parse(Console.ReadLine() ?? "");
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    //Console.ForegroundColor = ConsoleColor.Green;
                     switch (assignmentChoice)
                     {
                         case 1:
@@ -44,6 +44,9 @@ namespace Exercise_1
                             break;
                         case 9:
                             RunExerciseNine();
+                            break;
+                        case 10:
+                            RunExerciseTen();
                             break;
                         case -1:
                             keepAlive = false;
@@ -366,6 +369,97 @@ namespace Exercise_1
 
                 return number;
             }
+        }
+
+        private static void RunExerciseTen()
+        {
+            var keepAlive = true;
+            while (keepAlive)
+            {
+                try
+                {
+
+                    
+                    Console.WriteLine("Choose between option 1, 2, or 3, or -1 if you want to go back");
+                    var optionChoice = int.Parse(Console.ReadLine() ?? "");
+                    switch (optionChoice)
+                    {
+                        case 1:
+                            Division();
+                            break;
+                        case 2:
+                            RunExerciseFour();
+                            break;
+                        case 3:
+                            ColorChange();
+                            break;
+                        case -1:
+                            keepAlive = false;
+                            break;
+                        default:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("That is not a valid assignment number.");
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("That is not a valid assignment number.");
+                    Console.ResetColor();
+                }
+            }
+
+            static void Division()
+            {
+                double numberOne;
+                double numberTwo;
+                double divisionResult;
+
+                Console.WriteLine("Please enter a number:");
+                numberOne = TextToNumber(Console.ReadLine());
+
+                Console.WriteLine("Please enter the number that you wish to divide by: ");
+                numberTwo = TextToNumber(Console.ReadLine());
+
+                if (numberTwo == 0.0)
+                {
+                    Console.WriteLine("I'm sorry, you can not divide by zero. Please try another number:");
+                    numberTwo = TextToNumber(Console.ReadLine());
+                }
+
+                divisionResult = numberOne / numberTwo;
+
+                Console.Write("That divides to: " + divisionResult);
+                Console.WriteLine("\nPress any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+
+                static double TextToNumber(string textNumber)
+                {
+                    double number = 0.0;
+
+                    double.TryParse(textNumber, out number);
+
+                    return number;
+                }
+            }
+
+            static void ColorChange()
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                if (Console.ForegroundColor == ConsoleColor.Green)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                }
+                else 
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+            }
+   
+
         }
     }
 }
