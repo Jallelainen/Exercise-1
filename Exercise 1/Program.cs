@@ -32,6 +32,7 @@ namespace Exercise_1
                             break;
                         case 5:
                             RunExerciseFive();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -142,7 +143,14 @@ namespace Exercise_1
         {
             string str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
 
-            string numbers = str.IndexOf()
+            int i = str.IndexOf("[");// location of "["
+            string numbers = str.Substring(i);//numbers = [1,2,3,4,5]
+
+            numbers = numbers.Remove(3, 4); // removes "2,3,". Result: [1,4,5]
+
+            string finalOutput = numbers.Insert(6, ",6,7,8,9,10");
+
+            Console.WriteLine(finalOutput);
         }
 
     }
