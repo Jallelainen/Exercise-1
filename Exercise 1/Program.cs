@@ -36,6 +36,12 @@ namespace Exercise_1
                         case 6:
                             RunExerciseSix();
                             break;
+                        case 7:
+                            RunExerciseSeven();
+                            break;
+                        case 8:
+                            RunExerciseEight();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -221,5 +227,55 @@ namespace Exercise_1
 
         }
 
+        private static void RunExerciseSeven()
+        {
+            double input;
+
+            Console.WriteLine("Please enter a number: ");
+            input = TextToNumber(Console.ReadLine());
+
+            double area = (3.14 * (input * input));
+
+            double volume = ((4.0 * 3.14 * (input * input * input)) / 3);
+
+            Console.WriteLine("The area is " + area + "m2, and the volume is " + volume + "m3.");
+
+
+            static double TextToNumber(string textNumber)
+            {
+                double number = 0.0;
+
+                double.TryParse(textNumber, out number);
+
+                return number;
+            }
+
+        }
+
+        private static void RunExerciseEight()
+        {
+            decimal input;
+
+            Console.WriteLine("Please enter a number: ");
+            input = TextToNumber(Console.ReadLine());
+
+            decimal sqrt = (decimal)Math.Sqrt((double)input);
+            decimal pow2 = input * input;
+            decimal pow10 = (decimal)Math.Pow((double)input, 10);
+
+            Console.WriteLine("The square root of this number is: " + sqrt + "\n" +
+                "This number raised to the power of 2 is: " + pow2 + "\n" +
+                "This number raised to the power of 10 is: " + pow10);
+
+            static decimal TextToNumber(string textNumber)
+            {
+                decimal number = 0;
+
+                decimal.TryParse(textNumber, out number);
+
+                return number;
+            }
+
+        }
     }
 }
