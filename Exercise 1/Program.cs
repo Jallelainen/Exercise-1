@@ -42,6 +42,9 @@ namespace Exercise_1
                         case 8:
                             RunExerciseEight();
                             break;
+                        case 9:
+                            RunExerciseNine();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -276,6 +279,70 @@ namespace Exercise_1
                 return number;
             }
 
+        }
+
+        private static void RunExerciseNine()
+        {
+            Console.WriteLine("Welcome, what is your name?");
+            string userName = Console.ReadLine();
+
+            Console.WriteLine("Hello " + userName + ", may I ask your year of birth?");
+            int userBirthYear = TextToNumber(Console.ReadLine());
+
+            int userAge = DateTime.Now.Year - userBirthYear;
+
+
+            if (userAge >= 18)
+            {
+                OrderBeer();   
+            }
+
+            else if (userAge < 18)
+            {
+                OrderCoke();
+            }
+
+            static void OrderBeer()
+            {
+                Console.WriteLine("Would you like to order a beer?");
+                string answer = Console.ReadLine();
+
+                if (answer == "yes")
+                {
+                    Console.WriteLine("Your order has been served!");
+                }
+                else if (answer == "no")
+                {
+                    OrderCoke();
+                }
+
+            }
+
+            static void OrderCoke()
+            {
+                Console.WriteLine("Would you like to order a Coke?");
+                string answer = Console.ReadLine();
+
+                if (answer == "yes")
+                {
+                    Console.WriteLine("Your order has been served!");
+                }
+                else if (answer == "no")
+                {
+                    Console.WriteLine("There are unfortunantely no other alternatives.");
+                    answer = Console.ReadLine();
+                }
+
+            }
+
+            static int TextToNumber(string textNumber)
+            {
+                int number = 0;
+
+                int.TryParse(textNumber, out number);
+
+                return number;
+            }
         }
     }
 }
