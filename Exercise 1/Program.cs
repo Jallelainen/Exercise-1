@@ -159,7 +159,67 @@ namespace Exercise_1
 
         private static void RunExerciseSix()
         {
-            throw new NotImplementedException();
+            int input1;
+            int input2;
+
+           
+            Console.WriteLine("Please enter a number: ");
+            input1 = TextToNumber(Console.ReadLine()); 
+            
+            
+            Console.WriteLine("Please enter a number: ");
+            input2 = TextToNumber(Console.ReadLine());
+
+
+            if (input1 > input2) 
+            {
+                
+                Console.WriteLine(input1 + " is the biggest number.");
+                Console.WriteLine(input2 + " is the smallest number.");
+
+                int number1 = input1 - input2;
+                Console.WriteLine("The difference is " + number1);
+
+                int number2 = input1 + input2;
+                Console.WriteLine("The sum is " + number2);
+
+                int number3 = input1 * input2;
+                Console.WriteLine("The product is " + number3);
+
+                int number4 = input1 / input2;
+                Console.WriteLine("The ratio is " + number4);
+            }
+            else
+            {
+                
+                Console.WriteLine(input2 + " is the biggest number.");
+                Console.WriteLine(input1 + " is the smallest number.");
+                
+                int number1 = input2 - input1;
+                Console.WriteLine("The difference is " + number1);
+
+                int number2 = input2 + input1;
+                Console.WriteLine("The sum is " + number2);
+
+                int number3 = input2 * input1;
+                Console.WriteLine("The product is " + number3);
+                
+                int number4 = input2 / input1;
+                Console.WriteLine("The ratio is " + number4);
+            }
+
+
+            static int TextToNumber(string textNumber)
+            {
+                int number = 0;
+
+                int.TryParse(textNumber, out number);
+
+                return number;
+            }
+
+
         }
+
     }
 }
