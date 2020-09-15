@@ -30,6 +30,8 @@ namespace Exercise_1
                         case 4:
                             RunExerciseFour();
                             break;
+                        case 5:
+                            RunExerciseFive();
                         case -1:
                             keepAlive = false;
                             break;
@@ -54,7 +56,6 @@ namespace Exercise_1
 
 
         }
-
 
         private static void RunExerciseOne()
             {
@@ -118,7 +119,30 @@ namespace Exercise_1
         {
             String str = "The quick fox Jumped Over the DOG";
 
+            str = str.Remove(4, 6); // The fox Jumped Over the DOG
+            
+            str = str.Insert(3, " brown"); // The brown fox Jumped Over the DOG
+            
+            string dog = str.Replace("DOG", "lazy dog");//The brown fox Jumped Over the lazy dog
 
+            string index1 = dog.Substring(14, 1); //index1 = "J"
+            string index2 = dog.Substring(21, 1); //index2 = "O"
+
+            string final = dog.Replace(index1, "j");
+            final = final.Replace(index2, "o"); //The brown fox jumped over the lazy dog
+
+ 
+            //string final = dog.Replace("Jumped Over", "jumped over");
+
+            Console.WriteLine(final);
+
+        }
+
+        private static void RunExerciseFive()
+        {
+            string str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
+
+            string numbers = str.IndexOf()
         }
 
     }
