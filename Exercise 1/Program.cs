@@ -33,6 +33,9 @@ namespace Exercise_1
                         case 5:
                             RunExerciseFive();
                             break;
+                        case 6:
+                            RunExerciseSix();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -57,6 +60,7 @@ namespace Exercise_1
 
 
         }
+
 
         private static void RunExerciseOne()
             {
@@ -153,5 +157,9 @@ namespace Exercise_1
             Console.WriteLine(finalOutput);
         }
 
+        private static void RunExerciseSix()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
