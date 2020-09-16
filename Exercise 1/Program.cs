@@ -48,6 +48,9 @@ namespace Exercise_1
                         case 10:
                             RunExerciseTen();
                             break;
+                        case 11:
+                            RunExerciseEleven();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -465,5 +468,36 @@ namespace Exercise_1
    
 
         }
+
+        private static void RunExerciseEleven()
+        {
+            int userInput;
+            Console.WriteLine("Please enter a number: ");
+            userInput = TextToNum(Console.ReadLine());
+            
+            if (userInput <= 0)
+            {
+                Console.WriteLine("I'm sorry, you have to enter a number greater than 0");
+                Console.ReadKey();
+                Console.Clear();
+                RunExerciseEleven();
+            }
+
+            for (int i = 0; i < 5; i++ )
+            {
+
+            }
+
+            static int TextToNum(string textNum)
+            {
+                int num = 0;
+
+                int.TryParse(textNum, out num);
+
+                return num;
+
+            }
+        }
+
     }
 }
