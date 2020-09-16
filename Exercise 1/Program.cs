@@ -447,16 +447,20 @@ namespace Exercise_1
 
             static void ColorChange()
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-
+                
                 if (Console.ForegroundColor == ConsoleColor.Green)
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
                 }
-                else 
+                else if (Console.ForegroundColor == ConsoleColor.Magenta)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                
             }
    
 
