@@ -629,26 +629,26 @@ namespace Exercise_1
         {
             var list = new ArrayList();
             string userInput;
-            int userNum;
+            double userNum;
             bool keeplooping = true;
             while (keeplooping == true)
             {
 
                 Console.Write("Please enter a number: ");
                 userInput = Console.ReadLine();
-                int.TryParse(userInput, out userNum);
+                double.TryParse(userInput, out userNum);
 
 
-                if (userNum >= 0)
+                if (userNum > 0)
                 {
                     list.Add(userNum);
                 }
                 else if (userNum == -1)
                 {
-                    var sum = new int();
+                    var sum = new double();
                     foreach (var item in list)
                     {
-                        sum = sum + (int)item;
+                        sum = sum + (double)item;
                     }
 
                     Console.WriteLine("Sum: " + sum + "\nAverage: " + (sum / list.Count));
@@ -667,6 +667,24 @@ namespace Exercise_1
 
         private static void RunExerciseSixteen()
         {
+            Console.Write("Please enter a number: ");
+            string userInput = Console.ReadLine();
+            int userNum;
+            int num1 = 0;
+            int num2 = 1;
+            
+            int.TryParse(userInput, out userNum);
+
+            Console.Write(num1 + " " + num2 + " ");
+            for (int i = 2; i < userNum; i++)
+            {
+                int num3 = num1 + num2;
+                Console.Write(num3 + " ");
+                num1 = num2;
+                num2 = num3;
+            }
+
+            Console.WriteLine();
 
         }
 
