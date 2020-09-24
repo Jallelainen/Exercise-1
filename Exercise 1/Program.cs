@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 
@@ -623,28 +625,35 @@ namespace Exercise_1
             }
         }
 
-        private static void RunExerciseFourteen()// not done.
+        private static void RunExerciseFourteen()
         {
+            var list = new ArrayList();
+            string userInput;
+            int userNum;
             bool keeplooping = true;
             while (keeplooping == true)
             {
 
                 Console.Write("Please enter a number: ");
-                string userInput = Console.ReadLine();
-                List<int> list = new List<int>(10);
-                int userNum;
+                userInput = Console.ReadLine();
                 int.TryParse(userInput, out userNum);
 
 
-                if (userNum == -1)
-                {
-                    int sum = list.Sum();
-                    Console.WriteLine("Sum: " + sum);
-                    keeplooping = false;
-                }
-                else
+                if (userNum >= 0)
                 {
                     list.Add(userNum);
+                }
+                else if (userNum == -1)
+                {
+                    var sum = new int();
+                    foreach (var item in list)
+                    {
+                        sum = sum + (int)item;
+                    }
+
+                    Console.WriteLine("Sum: " + sum + "\nAverage: " + (sum / list.Count));
+                    Console.ReadKey(true);
+                    keeplooping = false;
                 }
 
             }
@@ -677,7 +686,7 @@ namespace Exercise_1
                 array[i] = random.Next(1, 101);
                 doubleArray[i] = 1.0 / array[i];
             }
-          
+
             foreach (var item in array)
             {
                 Console.WriteLine(item);
